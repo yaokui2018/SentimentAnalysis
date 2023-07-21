@@ -1,0 +1,5 @@
+Keras==2.6.0
+tensorflow-gpu==2.6.0
+gensim==4.2.0
+jieba==0.38
+sklearn==0.0
