@@ -152,7 +152,8 @@ def train_lstm(n_symbols, embedding_weights, x_train, y_train, x_test, y_test):
     y_train, y_val = y_train[:train_size], y_train[train_size:]
 
     print("Train...")  # batch_size=32
-    model.fit(x_train, y_train, batch_size=batch_size, epochs=n_epoch, verbose=1, callbacks=[early_stopping], validation_data=(x_val, y_val))
+    model.fit(x_train, y_train, batch_size=batch_size, epochs=n_epoch, verbose=1, callbacks=[early_stopping],
+              validation_data=(x_val, y_val))
 
     print("Evaluate...")
     score = model.evaluate(x_test, y_test,
