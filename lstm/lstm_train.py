@@ -37,7 +37,7 @@ n_epoch = 1000
 input_length = 100
 maxlen = 100
 
-batch_size = 4096 * 3
+batch_size = 1024
 
 
 def loadfile():
