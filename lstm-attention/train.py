@@ -40,10 +40,12 @@ maxlen = 100
 
 batch_size = 1024
 
-def loadfile():
-    neg = pd.read_csv('../data/neg.csv', header=None, index_col=None)
-    pos = pd.read_csv('../data/pos.csv', header=None, index_col=None, error_bad_lines=False)
-    neu = pd.read_csv('../data/neutral.csv', header=None, index_col=None)
+def loadfile(datapath="../data/"):
+    # datapath += "ChnSentiCorp/"
+    neg = pd.read_csv(datapath + 'neg.csv', header=None, index_col=None, sep="\t")
+    pos = pd.read_csv(datapath + 'pos.csv', header=None, index_col=None, error_bad_lines=False, sep="\t")
+    neu = pd.read_csv(datapath + 'neutral.csv', header=None, index_col=None)
+    # neu = pd.DataFrame(["null"])
 
     combined = np.concatenate((pos[0], neu[0], neg[0]))
     y = np.concatenate((np.ones(len(pos), dtype=int), np.zeros(len(neu), dtype=int),
