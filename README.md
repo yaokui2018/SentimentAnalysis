@@ -19,17 +19,17 @@
 #### 测试
 `python lstm/lstm_test.py`
 
-### 3. LSTM + Attention
+### 3. BiLSTM + Attention
 #### 训练
-`python lstm-attention/train.py`
+`python bilstm-attention/train.py`
 
-![效果图](imgs/lstm-attention.png)
+![效果图](imgs/bilstm-attention.png)
 #### 测试
-`python lstm-attention/test.py`
+`python bilstm-attention/test.py`
 
 ### 4. 说明
 代码和数据来源于：[Edward1Chou/SentimentAnalysis](https://github.com/Edward1Chou/SentimentAnalysis)，在基础上做了一些改动。
 - 环境由 python2 改为 python3
 - 加入 EarlyStopping
-- 加入 Attention 机制 -> lstm-attention/train.py
+- 加入 BiLSTM + Attention -> bilstm-attention/train.py
 - ...
