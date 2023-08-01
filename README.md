@@ -27,9 +27,18 @@
 #### 测试
 `python bilstm-attention/test.py`
 
-### 4. 说明
+### 4. BiLSTM + Self-Attention
+#### 训练
+`python bilstm-self-attention/train.py`
+
+![效果图](imgs/bilstm-self-attention.png)
+#### 测试
+`python bilstm-self-attention/test.py`
+
+### -1. 说明
 代码和数据来源于：[Edward1Chou/SentimentAnalysis](https://github.com/Edward1Chou/SentimentAnalysis)，在基础上做了一些改动。
 - 环境由 python2 改为 python3
 - 加入 EarlyStopping
 - 加入 BiLSTM + Attention -> bilstm-attention/train.py
+- 加入 Self-Attention
 - ...
