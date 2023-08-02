@@ -68,17 +68,17 @@ def input_transform(string):
     return combined
 
 model = None
-def lstm_predict(string):
+def gru_predict(string):
     global model
     if not model:
         print('loading model......')
         custom_objects = {'SelfAttentionLayer': SelfAttentionLayer}
-        with open('../model/bilstm-self-attention.json', 'r') as f:
+        with open('../model/bigru-self-attention.json', 'r') as f:
             json_string = json.load(f)
         model = model_from_json(json_string, custom_objects=custom_objects)
 
         print('loading weights......')
-        model.load_weights('../model/bilstm-self-attention.h5')
+        model.load_weights('../model/bigru-self-attention.h5')
         model.compile(loss='categorical_crossentropy',
                       optimizer='adam', metrics=['accuracy'])
     data = input_transform(string)
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     # string = "不错不错"
     string = "真的一般，没什么可以学习的"
 
-    lstm_predict(string)
+    gru_predict(string)
 
     while True:
-        lstm_predict(input(">> "))
+        gru_predict(input(">> "))
