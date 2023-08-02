@@ -51,4 +51,5 @@
 - 加入 EarlyStopping
 - 加入 BiLSTM + Attention -> bilstm-attention/train.py
 - 加入 Self-Attention
+- 加入 BiGRU
 - ...
