@@ -35,7 +35,17 @@
 #### 测试
 `python bilstm-self-attention/test.py`
 
-### -1. 说明
+### 5. BiGRU + Self-Attention
+#### 训练
+`python bigru-self-attention/train.py`
+
+![效果图](imgs/bigru-self-attention.png)
+#### 测试
+`python bigru-self-attention/test.py`
+
+---
+
+### 说明
 代码和数据来源于：[Edward1Chou/SentimentAnalysis](https://github.com/Edward1Chou/SentimentAnalysis)，在基础上做了一些改动。
 - 环境由 python2 改为 python3
 - 加入 EarlyStopping
