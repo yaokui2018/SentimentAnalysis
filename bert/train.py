@@ -501,17 +501,23 @@ def main():
             if f1 > best_score:
                 best_score = f1
                 flags = 0
-                checkpoint = {
-                    'state_dict': model.state_dict()
-                }
-                print(f"saving model to [{args.model_save_pth}] ...")
-                torch.save(checkpoint, args.model_save_pth)
+                # checkpoint = {
+                #     'state_dict': model.state_dict()
+                # }
+                print(f"saving model to [{args.output_dir}] ...")
+                # torch.save(checkpoint, args.model_save_pth)
+                # torch.save(model, "bert.pt")
+                tokenizer.save_pretrained(args.output_dir)
+                model.save_pretrained(args.output_dir)
             else:
                 flags += 1
                 if flags >= 6:
                     break
 
-    model.load_state_dict(torch.load(args.model_save_pth)['state_dict'])
+    # model.load_state_dict(torch.load(args.model_save_pth)['state_dict'])
+    tokenizer = BertTokenizer.from_pretrained(args.output_dir, do_lower_case=args.do_lower_case)
+    model = BertForSequenceClassification.from_pretrained(args.output_dir, num_labels=len(label_list))
+    model.to(device)
     print("testing...")
     test(model, processor, args, label_list, tokenizer, device)
 

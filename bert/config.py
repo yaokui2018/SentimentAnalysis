@@ -7,7 +7,7 @@ def get_args():
     parser.add_argument("--data_dir", default='./data', type=str, help="数据集路径")
     parser.add_argument("--bert_model", default='bert-base-chinese', type=str, help="Bert模型名，可在线仓库名/本地路径")
     parser.add_argument("--output_dir", default='checkpoints/', type=str, help="模型 checkpoints 保存目录")
-    parser.add_argument("--model_save_pth", default='checkpoints/bert.pth', type=str, help="模型文件保存路径")
+    # parser.add_argument("--model_save_pth", default='checkpoints/bert.pth', type=str, help="模型文件保存路径")
     # other parameters
     parser.add_argument("--max_seq_length", default=120, type=int, help="字符串最大长度")
     parser.add_argument("--do_train", default=True, action='store_true', help="训练模式")

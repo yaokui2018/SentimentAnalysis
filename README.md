@@ -53,6 +53,16 @@
 `python bert/test.py`
 
 ![效果图](imgs/bert.png)
+#### 部署
+1. 转 onnx
+
+`python bert/torch2onnx.py`
+
+2. onnx 运行
+
+`python bert/deploy.py`
+
+![效果图](imgs/bert-deploy.png)
 
 ---
 

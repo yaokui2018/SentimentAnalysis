@@ -35,11 +35,11 @@ def init_model(args):
 
     processor = MyPro()
     label_list = processor.get_labels()
-    tokenizer = BertTokenizer.from_pretrained(args.bert_model, do_lower_case=args.do_lower_case)
+    tokenizer = BertTokenizer.from_pretrained(args.output_dir, do_lower_case=args.do_lower_case)
 
     # Prepare model
     model = BertForSequenceClassification.from_pretrained(
-        args.bert_model, cache_dir=PYTORCH_PRETRAINED_BERT_CACHE + '/distributed_{}'.format(args.local_rank),
+        args.output_dir, cache_dir=PYTORCH_PRETRAINED_BERT_CACHE + '/distributed_{}'.format(args.local_rank),
         num_labels=len(label_list)
     )
     if args.fp16:
@@ -51,10 +51,10 @@ def init_model(args):
     elif n_gpu > 1:
         model = torch.nn.DataParallel(model)
 
-    if not torch.cuda.is_available():
-        model.load_state_dict(torch.load(args.model_save_pth, map_location='cpu')['state_dict'])
-    else:
-        model.load_state_dict(torch.load(args.model_save_pth)['state_dict'])
+    # if not torch.cuda.is_available():
+    #     model.load_state_dict(torch.load(args.model_save_pth, map_location='cpu')['state_dict'])
+    # else:
+    #     model.load_state_dict(torch.load(args.model_save_pth)['state_dict'])
 
     return model, processor, args, label_list, tokenizer, device
 
