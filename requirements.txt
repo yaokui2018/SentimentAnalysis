@@ -3,3 +3,7 @@ tensorflow-gpu==2.6.0
 gensim==4.2.0
 jieba==0.38
 sklearn==0.0
+
+# bert
+transformers==4.27.1
+torch==1.13.1
